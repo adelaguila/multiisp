@@ -20,16 +20,16 @@ public class OrdenAsignacionProducto {
     private Long idOrdenAsignacionProducto;
 
     @ManyToOne
-    @JoinColumn(name = "id_orden_asignacion", nullable = false)
+    @JoinColumn(name = "id_orden_asignacion", nullable = false, foreignKey = @ForeignKey(name = "FK_ORDEN_ASIGNACION_PRODUCTO_ORDEN_ASIGNACION"))
     private OrdenAsignacion ordenAsignacion;
 
     @ManyToOne
-    @JoinColumn(name = "id_producto", nullable = false)
+    @JoinColumn(name = "id_producto", nullable = false, foreignKey = @ForeignKey(name = "FK_ORDEN_ASIGNACION_PRODUCTO_PRODUCTO"))
     private Producto producto;
 
 
     @ManyToOne
-    @JoinColumn(name = "id_producto_serie")
+    @JoinColumn(name = "id_producto_serie", foreignKey = @ForeignKey(name = "FK_ORDEN_ASIGNACION_PRODUCTO_PRODUCTO_SERIE"))
     private ProductoSerie productoSerie;
 
     private Integer cantidad;

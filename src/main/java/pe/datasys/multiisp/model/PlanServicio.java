@@ -7,8 +7,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @AllArgsConstructor
@@ -22,11 +20,11 @@ public class PlanServicio {
     private Integer idPlanServicio;
 
     @ManyToOne
-    @JoinColumn(name = "id_plan", nullable = false)
+    @JoinColumn(name = "id_plan", nullable = false, foreignKey = @ForeignKey(name = "FK_PLAN_SERVICIO_PLAN"))
     private Plan plan;
 
     @ManyToOne
-    @JoinColumn(name = "id_servicio", nullable = false)
+    @JoinColumn(name = "id_servicio", nullable = false, foreignKey = @ForeignKey(name = "FK_PLAN_SERVICIO_SERVICIO"))
     private Servicio servicio;
 
 }

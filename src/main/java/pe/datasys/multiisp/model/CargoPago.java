@@ -7,8 +7,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @AllArgsConstructor
@@ -22,11 +20,11 @@ public class CargoPago {
     private Long idCargoPago;
 
     @ManyToOne
-    @JoinColumn(name = "id_cargo", nullable = false)
+    @JoinColumn(name = "id_cargo", nullable = false, foreignKey = @ForeignKey(name = "FK_CARGO_PAGO_CARGO"))
     private Cargo cargo;
 
     @ManyToOne
-    @JoinColumn(name = "id_pago", nullable = false)
+    @JoinColumn(name = "id_pago", nullable = false, foreignKey = @ForeignKey(name = "FK_CARGO_PAGO_PAGO"))
     private Pago pago;
 
     @Column(nullable = false, columnDefinition = "decimal(6, 2)")

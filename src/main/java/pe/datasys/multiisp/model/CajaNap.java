@@ -22,6 +22,10 @@ public class CajaNap {
     @Column(length = 100, nullable = false)
     private String nombreCajaNap;
 
+    @ManyToOne
+    @JoinColumn(name = "id_sede", nullable = false, foreignKey = @ForeignKey(name = "FK_CAJA_NAP_SEDE"))
+    private Sede sede;
+
     @Column(length = 200)
     private String latitud;
 

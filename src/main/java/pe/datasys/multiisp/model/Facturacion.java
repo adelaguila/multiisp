@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -24,11 +23,11 @@ public class Facturacion {
     private Long idFacturacion;
 
     @ManyToOne
-    @JoinColumn(name = "id_sede", nullable = false)
+    @JoinColumn(name = "id_sede", nullable = false, foreignKey = @ForeignKey(name = "FK_FACTURACION_SEDE"))
     private Sede sede;
 
     @ManyToOne
-    @JoinColumn(name = "id_tercero", nullable = false)
+    @JoinColumn(name = "id_cliente_proveedor", nullable = false, foreignKey = @ForeignKey(name = "FK_FACTURACION_CLIENTE_PROVEEDOR"))
     private ClienteProveedor clienteProveedor;
 
     private LocalDate fecha;

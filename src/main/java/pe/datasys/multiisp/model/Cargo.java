@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
@@ -23,15 +22,15 @@ public class Cargo {
     private Long idCargo;
 
     @ManyToOne
-    @JoinColumn(name = "id_abonado", nullable = false)
+    @JoinColumn(name = "id_abonado", nullable = false, foreignKey = @ForeignKey(name = "FK_CARGO_ABONADO"))
     private Abonado abonado;
 
     @ManyToOne
-    @JoinColumn(name = "id_tipo_cargo", nullable = false)
+    @JoinColumn(name = "id_tipo_cargo", nullable = false, foreignKey = @ForeignKey(name = "FK_CARGO_TIPO_CARGO"))
     private TipoCargo tipoCargo;
 
     @ManyToOne
-    @JoinColumn(name = "id_liquidacion")
+    @JoinColumn(name = "id_liquidacion", foreignKey = @ForeignKey(name = "FK_CARGO_LIQUIDACION"))
     private Liquidacion liquidacion;
 
     private LocalDate fechaEmision;
@@ -45,7 +44,6 @@ public class Cargo {
     @Column(length = 2, nullable = false)
     private Integer anio;
 
-    // @Column(length = 2, nullable = false)
     private String periodo;
 
     private Integer tipo;

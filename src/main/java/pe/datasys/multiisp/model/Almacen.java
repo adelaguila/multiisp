@@ -19,7 +19,7 @@ public class Almacen {
     private Integer idAlmacen;
 
     @ManyToOne
-    @JoinColumn(name = "id_sede", nullable = false)
+    @JoinColumn(name = "id_sede", nullable = false, foreignKey = @ForeignKey(name = "FK_ALMACEN_SEDE"))
     private Sede sede;
 
 }

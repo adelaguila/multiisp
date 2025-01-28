@@ -20,14 +20,14 @@ public class ClienteProveedorDireccion {
     private Long idClienteProveedorDireccion;
 
     @ManyToOne
-    @JoinColumn(name = "id_cliente_provedor", nullable = false)
+    @JoinColumn(name = "id_cliente_provedor", nullable = false, foreignKey = @ForeignKey(name = "FK_CLIENTE_PROVEEDOR_DIRECCION_CLIENTE_PROVEEDOR"))
     private ClienteProveedor clienteProveedor;
 
     @Column(nullable = false)
     private String direccion;
 
     @ManyToOne
-    @JoinColumn(name = "ubigeo", nullable = false)
+    @JoinColumn(name = "ubigeo", nullable = false, foreignKey = @ForeignKey(name = "FK_CLIENTE_PROVEEDOR_DIRECCION_UBIGEO"))
     private Ubigeo ubigeo;
 
 }

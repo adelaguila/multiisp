@@ -21,6 +21,10 @@ public class Liquidacion {
     @EqualsAndHashCode.Include
     private Integer idLiquidacion;
 
+    @ManyToOne
+    @JoinColumn(name = "id_sede", nullable = false, foreignKey = @ForeignKey(name = "FK_LIQUIDACION_SEDE"))
+    private Sede sede;
+
     private LocalDate fechaEmision;
 
     private LocalDate fechaCierre;

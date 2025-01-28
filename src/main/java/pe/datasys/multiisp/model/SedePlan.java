@@ -12,19 +12,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "sectores_planes")
+@Table(name = "sedes_planes")
 public class SedePlan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
-    private Integer idSectorPlan;
+    private Integer idSedePlan;
 
     @ManyToOne
-    @JoinColumn(name = "id_sede", nullable = false)
+    @JoinColumn(name = "id_sede", nullable = false, foreignKey = @ForeignKey(name = "FK_SEDE_PLAN_SEDE"))
     private Sede sede;
 
     @ManyToOne
-    @JoinColumn(name = "id_plan", nullable = false)
+    @JoinColumn(name = "id_plan", nullable = false, foreignKey = @ForeignKey(name = "FK_SEDE_PLAN_PLAN"))
     private Plan plan;
 
     @Column(nullable = false, columnDefinition = "decimal(6, 2)")

@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -23,7 +22,7 @@ public class FacturacionItem {
     private Long idFacturacionItem;
 
     @ManyToOne
-    @JoinColumn(name = "id_facturacion", nullable = false)
+    @JoinColumn(name = "id_facturacion", nullable = false, foreignKey = @ForeignKey(name = "FK_FACTURACION_ITEM_FACTURACION"))
     private Facturacion facturacion;
 
     @Column(nullable = false, length = 500)

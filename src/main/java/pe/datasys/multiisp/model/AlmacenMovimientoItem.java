@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "almacen_ingresos_items")
+@Table(name = "almacen_movimientos_items")
 public class AlmacenMovimientoItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +20,11 @@ public class AlmacenMovimientoItem {
     private Long idAlmacenIngresoItem;
 
     @ManyToOne
-    @JoinColumn(name = "id_almacen_ingreso", nullable = false)
-    private AlmacenMovimiento almacenIngreso;
+    @JoinColumn(name = "id_almacen_movimiento", nullable = false, foreignKey = @ForeignKey(name = "FK_ALMACEN_MOVIMIENTO_ITEM_ALMACEN_MOVIMIENTO"))
+    private AlmacenMovimiento almacenMovimiento;
 
     @ManyToOne
-    @JoinColumn(name = "id_producto", nullable = false)
+    @JoinColumn(name = "id_producto", nullable = false, foreignKey = @ForeignKey(name = "FK_ALMACEN_MOVIMIENTO_ITEM_PRODUCTO"))
     private Producto producto;
 
     private Integer cantidad;

@@ -19,7 +19,7 @@ public class ProductoSerie {
     private String serie;
 
     @ManyToOne
-    @JoinColumn(name = "id_producto", nullable = false)
+    @JoinColumn(name = "id_producto", nullable = false, foreignKey = @ForeignKey(name = "FK_PRODUCTO_SERIE_PRODUCTO"))
     private Producto producto;
 
     private String estado;

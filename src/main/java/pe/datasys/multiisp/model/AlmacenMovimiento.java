@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "almacen_ingresos")
+@Table(name = "almacen_movimientos")
 public class AlmacenMovimiento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,14 +22,14 @@ public class AlmacenMovimiento {
     private Long idAlmacenIngreso;
 
     @ManyToOne
-    @JoinColumn(name = "id_almacen", nullable = false)
+    @JoinColumn(name = "id_almacen", nullable = false, foreignKey = @ForeignKey(name = "FK_ALMACEN_MOVIMIENTO_ALMACEN"))
     private Almacen almacen;
 
     private LocalDate fecha;
 
     @ManyToOne
-    @JoinColumn(name = "id_tipo_ingreso_almacen", nullable = false)
-    private TipoIngresoAlmacen tipoIngresoAlmacen;
+    @JoinColumn(name = "id_tipo_movimiento_almacen", nullable = false, foreignKey = @ForeignKey(name = "FK_ALMACEN_MOVIMIENTO_TIPO_MOVIMIENTO_ALMACEN"))
+    private TipoMovimientoAlmacen tipoMovimientoAlmacen;
 
     @Column(nullable = false, length = 15)
     private String documento;
@@ -37,11 +37,11 @@ public class AlmacenMovimiento {
     private String referencia;
 
     @ManyToOne
-    @JoinColumn(name = "id_cliente_proveedor", nullable = true)
+    @JoinColumn(name = "id_cliente_proveedor", nullable = true, foreignKey = @ForeignKey(name = "FK_ALMACEN_MOVIMIENTO_CLIENTE_PROVEEDOR"))
     private ClienteProveedor clienteProveedor;
 
     @ManyToOne
-    @JoinColumn(name = "id_user_tecnico", nullable = true)
+    @JoinColumn(name = "id_user_tecnico", nullable = true, foreignKey = @ForeignKey(name = "FK_ALMACEN_MOVIMIENTO_USER"))
     private User userTecnico;
 
 }

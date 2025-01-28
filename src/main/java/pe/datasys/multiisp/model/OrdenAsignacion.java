@@ -7,7 +7,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -22,11 +21,11 @@ public class OrdenAsignacion {
     private Long idOrdenAsignacion;
 
     @ManyToOne
-    @JoinColumn(name = "id_orden", nullable = false)
+    @JoinColumn(name = "id_orden", nullable = false, foreignKey = @ForeignKey(name = "FK_ORDEN_ASIGNACION_ORDEN"))
     private Orden orden;
     
     @ManyToOne
-    @JoinColumn(name = "id_user", nullable = false)
+    @JoinColumn(name = "id_user", nullable = false, foreignKey = @ForeignKey(name = "FK_ORDEN_ASIGNACION_USER"))
     private User user;
     
     private LocalDate fechaAsignacion;

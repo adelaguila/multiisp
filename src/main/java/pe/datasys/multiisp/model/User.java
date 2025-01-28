@@ -7,8 +7,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @AllArgsConstructor
@@ -33,14 +31,7 @@ public class User {
     private boolean enabled;
 
     @ManyToOne
-    @JoinColumn(name = "id_role", nullable = false)
+    @JoinColumn(name = "id_role", nullable = false, foreignKey = @ForeignKey(name = "FK_USER_ROLE"))
     private Role role;
 
-
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(name = "user_role",
-//            joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "idUser"),
-//            inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "idRole")
-//    )
-//    private List<Role> roles;
 }

@@ -25,6 +25,6 @@ public class Sector {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "id_sede", nullable = false)
+    @JoinColumn(name = "id_sede", nullable = false, foreignKey = @ForeignKey(name = "FK_SECTOR_SEDE"))
     private Sede sede;
 }

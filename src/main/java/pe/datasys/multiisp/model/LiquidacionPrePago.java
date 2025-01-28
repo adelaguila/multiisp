@@ -25,7 +25,7 @@ public class LiquidacionPrePago {
     private LocalDate fecha;
 
     @ManyToOne
-    @JoinColumn(name = "id_user", nullable = false)
+    @JoinColumn(name = "id_user", nullable = false, foreignKey = @ForeignKey(name = "FK_LIQUIDACION_PRE_PAGO_USER"))
     private User cobrador;
 
     BigDecimal totalGeneral;

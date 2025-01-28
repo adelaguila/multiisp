@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -22,19 +20,19 @@ public class Abonado {
     private Long idAbonado;
 
     @ManyToOne
-    @JoinColumn(name = "id_cliente_proveedor", nullable = false)
+    @JoinColumn(name = "id_cliente_proveedor", nullable = false, foreignKey = @ForeignKey(name = "FK_ABONADO_CLIENTE_PROVEEDOR"))
     private ClienteProveedor clienteProveedor;
 
     @ManyToOne
-    @JoinColumn(name = "id_sede", nullable = false)
+    @JoinColumn(name = "id_sede", nullable = false, foreignKey = @ForeignKey(name = "FK_ABONADO_SEDE"))
     private Sede sede;
 
     @ManyToOne
-    @JoinColumn(name = "id_sector", nullable = false)
+    @JoinColumn(name = "id_sector", nullable = false, foreignKey = @ForeignKey(name = "FK_ABONADO_SECTOR"))
     private Sector sector;
 
     @ManyToOne
-    @JoinColumn(name = "id_via", nullable = false)
+    @JoinColumn(name = "id_via", nullable = false, foreignKey = @ForeignKey(name = "FK_ABONADO_VIA"))
     private Via via;
 
     @Column(nullable = false, length = 50)
@@ -47,20 +45,17 @@ public class Abonado {
     private String suministro;
 
     @ManyToOne
-    @JoinColumn(name = "id_caja_nap", nullable = false)
+    @JoinColumn(name = "id_caja_nap", nullable = false, foreignKey = @ForeignKey(name = "FK_ABONADO_CAJA_NAP"))
     private CajaNap cajaNap;
 
     @ManyToOne
-    @JoinColumn(name = "id_plan", nullable = false)
+    @JoinColumn(name = "id_plan", nullable = false, foreignKey = @ForeignKey(name = "FK_ABONADO_SEDE_PLAN"))
     private SedePlan sedePlan;
 
-    // @Temporal(TemporalType.TIMESTAMP)
     private LocalDate fechaRegistro;
 
-    // @Temporal(TemporalType.TIMESTAMP)
     private LocalDate fechaActivacion;
 
-    // @Temporal(TemporalType.TIMESTAMP)
     private LocalDate fechaUltimaLiquidacion;
 
     @Column(nullable = true)

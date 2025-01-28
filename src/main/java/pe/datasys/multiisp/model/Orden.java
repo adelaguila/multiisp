@@ -22,7 +22,7 @@ public class Orden {
     private Long idOrden;
 
     @ManyToOne
-    @JoinColumn(name = "id_abonado", nullable = false)
+    @JoinColumn(name = "id_abonado", nullable = false, foreignKey = @ForeignKey(name = "FK_ORDEN_ABONADO"))
     private Abonado abonado;
 
     @Column(length = 150, nullable = false)
@@ -42,14 +42,14 @@ public class Orden {
     private LocalDate fechaAtencion;
 
     @ManyToOne
-    @JoinColumn(name = "id_tipo_orden", nullable = false)
+    @JoinColumn(name = "id_tipo_orden", nullable = false, foreignKey = @ForeignKey(name = "FK_ORDEN_TIPO_ORDEN"))
     private TipoOrden tipoOrden;
 
     @Column(nullable = true)
     private Integer vendedor;
 
     @ManyToOne
-    @JoinColumn(name = "id_sede_plan")
+    @JoinColumn(name = "id_sede_plan", foreignKey = @ForeignKey(name = "FK_ORDEN_SEDE_PLAN"))
     private SedePlan sedePlan;
 
 }
