@@ -1,0 +1,7 @@
+package pe.datasys.multiisp.service;
+
+import pe.datasys.multiisp.model.CuentaBancaria;
+
+public interface ICuentaBancariaService extends ICRUD<CuentaBancaria, String> {
+
+}
